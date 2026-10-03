@@ -1,0 +1,38 @@
+<div class="login-container">
+    <div class="login-card">
+        <h2>Leave Management System</h2>
+        <p>Login to your account</p>
+
+        <form [formGroup]="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+
+                @if(loginForm.controls.email.touched && loginForm.controls.email.invalid) {
+                    @if(loginForm.controls.email.errors?.['required']) {
+                        <small>Email is required.</small>
+                    }
+
+                    @if(loginForm.controls.email.errors?.['email']) {
+                        <small>Enter a valid email address.</small>
+                    }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+
+                @if(loginForm.controls.password.touched && loginForm.controls.password.invalid) {
+                    @if(loginForm.controls.password.errors?.['required']) {
+                        <small>Password is required.</small>
+                    }
+                }
+            </div>
+
+            <button type="submit">
+                Login
+            </button>
+        </form>
+    </div>
+</div>
